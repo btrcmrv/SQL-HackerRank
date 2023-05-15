@@ -331,6 +331,3 @@ FROM STATION
 WHERE CITY NOT REGEXP "^[a,e,i,o,u]" AND
       CITY NOT REGEXP "[a,e,i,o,u]$";
 ```
-
-![image](https://github.com/btrcmrv/SQL-HackerRank-Problems-BasicSelect/assets/133340167/4008b2cf-b00e-48aa-b00d-b4a23f52f8b8)
-

@@ -1,5 +1,4 @@
 # **[SQL-HackerRank-Problems-BasicSelect](https://www.hackerrank.com)**
 
 
-My solutions to Hacker-Rank SQL problems 
-                      using MySQL syntax
+My solutions to HackerRank SQL problems are written in MySQL syntax and organized into separate subfiles based on three levels of difficulty: easy, medium, and hard.

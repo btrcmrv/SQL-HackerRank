@@ -12,15 +12,15 @@ The STUDENTS table is described as follows:
 |  Column | Type |
 |---|---|
 | ID  | INTEGER |
-| NAME | STRING   |
-| MARKS  | INTEGER  |
+| Name | STRING   |
+| Marks  | INTEGER  |
 
 
 The Name column only contains uppercase (A-Z) and lowercase (a-z) letters.
 
 Sample Input
 
-|  ID | NAME | MARKS |
+|  ID | Name | Marks |
 |---|---|----|
 | 1  | Ashley | 81 | 
 | 2 | Samantha  | 75 |
@@ -29,11 +29,13 @@ Sample Input
 
 Sample Output
 
+```
 Ashley
 
 Julia
 
 Belvet
+```
 
 *Explanation*
 
@@ -41,7 +43,12 @@ Only Ashley, Julia, and Belvet have Marks > 75. If you look at the last three ch
 
 **Solution**
 ```sql
-   
+
+SELECT Name 
+FROM STUDENTS 
+WHERE Marks>75
+ORDER BY RIGHT(Name,3),
+         ID ASC;
 ```
 
 
@@ -78,7 +85,7 @@ Sample Input
 | 99989 | Joe |  9 | 3573 |
 
 Sample Output
-
+```
 Angela
 
 Bonnie
@@ -98,10 +105,14 @@ Patrick
 Rose
 
 Todd
+```
+
 
 **Solution**
 ```sql
-
+SELECT name 
+FROM Employee 
+ORDER BY name ASC; 
 ```
 
 
@@ -158,5 +169,10 @@ We order our output by ascending employee_id.
 
 **Solution**
 ```sql
- 
+
+SELECT name
+FROM Employee
+WHERE salary>2000 AND
+      months<10
+ORDER BY employee_id ASC;
 ```

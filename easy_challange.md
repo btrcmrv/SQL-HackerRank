@@ -76,15 +76,16 @@ Sample Input
 | 12228 | Rose | 15 | 1968 |
 | 33645 | Angela   | 1 | 3443 |
 | 45692  | Frank  | 17  | 1608  |
-| 56118  | Patrick  |  7 | 1345
+| 56118  | Patrick  |  7 | 1345 |
 | 59725 | Lisa | 11 | 2330 |
 | 74197 | Kimberly   | 16 | 4372 |
 | 78454  | Bonnie  |  8 | 1771 |
-| 83565 | Michael |  6 | 2017
+| 83565 | Michael |  6 | 2017 |
 | 98607  | Todd  |  5 | 3396 |
 | 99989 | Joe |  9 | 3573 |
 
 Sample Output
+
 ```
 Angela
 
@@ -104,7 +105,7 @@ Patrick
 
 Rose
 
-Todd
+Todd 
 ```
 
 
@@ -150,7 +151,7 @@ Sample Input
 | 99989 | Joe |  9 | 3573 |
 
 Sample Output
-
+```
 Angela
 
 Michael
@@ -158,6 +159,7 @@ Michael
 Todd
 
 Joe
+```
 
 *Explanation*
 
@@ -176,3 +178,226 @@ WHERE salary>2000 AND
       months<10
 ORDER BY employee_id ASC;
 ```
+
+
+**[African Cities](https://www.hackerrank.com/challenges/african-cities)**
+
+
+Given the CITY and COUNTRY tables, query the names of all cities where the CONTINENT is 'Africa'.
+
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+
+Input Format
+
+The CITY and COUNTRY tables are described as follows:
+
+|  Field | Type |
+|---|---|
+| ID  | NUMBER |
+| NAME | VARCHAR2(17) |
+| COUNTRYCODE | VARCHAR2(3)  |
+| DISTRICT | VARCHAR2(20) |
+|POPULATION | NUMBER|
+
+
+|  Field | Type |
+|---|---|
+| CODE  | VARCHAR2(3) |
+| NAME | VARCHAR2(44) |
+| CONTINENT | VARCHAR2(13)  |
+| REGION | VARCHAR2(25) |
+|SURFACEAREA | NUMBER |
+|INDEPYEAR| VARCHAR2(5) | 
+|POPULATION | NUMBER |
+|LIFEEXPECTANCY| VARCHAR2(4)|
+|GNP| NUMBER |
+|GNPOLD| VARCHAR2(9) |
+|LOCALNAME | VARCHAR2(44) |
+|GOVERNMENTFORM | VARCHAR2(44) |
+|HEADOFSTATE | VARCHAR2(32)|
+|CAPITAL | VARCHAR2(4)|
+|CODE2 | VARCHAR2(2)|
+
+
+
+**Solution**
+
+```sql
+SELECT ci.NAME
+FROM CITY ci
+JOIN COUNTRY co   
+    ON ci.COUNTRYCODE= co.CODE
+WHERE co.CONTINENT = "Africa"
+
+```
+
+
+**[Avarage Population of Each Continent](https://www.hackerrank.com/challenges/average-population-of-each-continent)**
+
+Given the CITY and COUNTRY tables, query the names of all the continents (COUNTRY.Continent) and their respective average city populations (CITY.Population) rounded down to the nearest integer.
+
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+
+Input Format
+
+The CITY and COUNTRY tables are described as follows:
+
+|  Field | Type |
+|---|---|
+| ID  | NUMBER |
+| NAME | VARCHAR2(17) |
+| COUNTRYCODE | VARCHAR2(3)  |
+| DISTRICT | VARCHAR2(20) |
+|POPULATION | NUMBER|
+
+
+|  Field | Type |
+|---|---|
+| CODE  | VARCHAR2(3) |
+| NAME | VARCHAR2(44) |
+| CONTINENT | VARCHAR2(13)  |
+| REGION | VARCHAR2(25) |
+|SURFACEAREA | NUMBER |
+|INDEPYEAR| VARCHAR2(5) | 
+|POPULATION | NUMBER |
+|LIFEEXPECTANCY| VARCHAR2(4)|
+|GNP| NUMBER |
+|GNPOLD| VARCHAR2(9) |
+|LOCALNAME | VARCHAR2(44) |
+|GOVERNMENTFORM | VARCHAR2(44) |
+|HEADOFSTATE | VARCHAR2(32)|
+|CAPITAL | VARCHAR2(4)|
+|CODE2 | VARCHAR2(2)|
+
+
+
+**Solution**
+
+```sql
+SELECT co.CONTINENT, FLOOR(AVG(ci.POPULATION)) AS avarage_roundown_population
+FROM CITY ci
+JOIN COUNTRY co   
+    ON ci.COUNTRYCODE= co.CODE
+GROUP BY  co.CONTINENT;
+```
+
+
+**[The Report](https://www.hackerrank.com/challenges/the-report)**
+
+
+You are given two tables: Students and Grades. Students contains three columns ID, Name and Marks.
+
+|  Column | Type |
+|---|---|
+| ID  | INTEGER |
+| Name | STRING   |
+| Marks  | INTEGER  |
+
+
+Grades contains the following data:
+
+|Grade | Min_Mark | Max_Mark |
+|---|---|----|
+| 1  | 0 | 9 | 
+| 2 | 10  | 19 |
+| 3  | 20  |  29 |
+| 4  | 30 |  39 |
+| 5 |  40 | 49 |
+| 6 | 50 | 59 |
+| 7 | 60 | 69 |
+| 8 | 70 | 79 |
+| 9 | 80 | 89 |
+| 10 | 90 | 100|
+
+
+Ketty gives Eve a task to generate a report containing three columns: Name, Grade and Mark. Ketty doesn't want the NAMES of those students who received a grade lower than 8. The report must be in descending order by grade -- i.e. higher grades are entered first. If there is more than one student with the same grade (8-10) assigned to them, order those particular students by their name alphabetically. Finally, if the grade is lower than 8, use "NULL" as their name and list them by their grades in descending order. If there is more than one student with the same grade (1-7) assigned to them, order those particular students by their marks in ascending order.
+
+Write a query to help Eve.
+
+Sample Input
+
+| ID  | Name | Marks|
+|---|---|----|
+| 1 | Julia   | 88|
+| 2  | Samantha  | 68|
+| 3 | Maria   | 99|
+| 4 | Scarlet   | 78|
+| 5 | Ashley   | 63|
+| 6 | Jane   | 81|
+
+Sample Output
+
+```
+Maria 10 99
+Jane 9 81
+Julia 9 88 
+Scarlet 8 78
+NULL 7 63
+NULL 7 68
+
+```
+
+Note
+
+Print "NULL"  as the name if the grade is less than 8.
+
+*Explanation*
+
+Consider the following table with the grades assigned to the students:
+
+| ID  | Name | Marks| Grade|
+|---|---|----|----|
+| 1 | Julia| 88| 9 |
+| 2 | Samantha | 68 | 7 |
+| 3 | Maria   | 99| 10 |
+| 4 | Scarlet   | 78 | 8 | 
+| 5 | Ashley   | 63 | 7 |
+| 6 | Jane   | 81 | 9 |
+
+
+So, the following students got 8, 9 or 10 grades:
+
+Maria (grade 10)
+
+Jane (grade 9)
+
+Julia (grade 9)
+
+Scarlet (grade 8)
+
+
+
+
+
+
+**Solution**
+
+```sql 
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

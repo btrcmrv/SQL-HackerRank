@@ -92,6 +92,16 @@ Scarlet (grade 8)
 **Solution**
 
 ```sql 
+SELECT 
+       IF(gr.Grade<8, NULL, st.Name),
+       gr.Grade, 
+       st.Marks
+FROM Students st, 
+     Grades gr
+WHERE
+    st.Marks BETWEEN gr.Min_Mark AND gr.Max_Mark
+ORDER BY gr.Grade DESC, 
+         st.Name;
 
 ```
 

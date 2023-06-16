@@ -180,6 +180,96 @@ ORDER BY employee_id ASC;
 ```
 
 
+**[Revising Aggregations - The Count Function](https://www.hackerrank.com/challenges/revising-aggregations-the-count-function)**
+
+Query a count of the number of cities in CITY having a Population larger than 100,000.
+
+Input Format
+
+The CITY table is described as follows:
+
+|  Field | Type |
+|---|---|
+| ID  | NUMBER |
+| NAME | VARCHAR2(17)   |
+| COUNTRYCODE | VARCHAR2(3)  |
+| DISTRICT | VARCHAR2(20) |
+| POPULATION | NUMBER |
+
+
+**Solution**
+```sql
+
+SELECT COUNT(ID) AS number_of_cities_pop_10k
+FROM CITY
+WHERE POPULATION>100000;
+
+```
+
+
+
+**[Revising Aggregations - The SUM Function](https://www.hackerrank.com/challenges/revising-aggregations-sum)**
+
+
+Query the total population of all cities in CITY where the District is California.
+
+Input Format
+
+The CITY table is described as follows:
+
+|  Field | Type |
+|---|---|
+| ID  | NUMBER |
+| NAME | VARCHAR2(17)   |
+| COUNTRYCODE | VARCHAR2(3)  |
+| DISTRICT | VARCHAR2(20) |
+| POPULATION | NUMBER |
+
+
+**Solution**
+
+```sql
+
+SELECT SUM(POPULATION)AS california_total_population
+FROM CITY
+WHERE DISTRICT="California";
+
+```
+
+
+
+
+**[Revising Aggregations - Averages](https://www.hackerrank.com/challenges/revising-aggregations-the-average-function)**
+
+Query the AVERAGE population of all cities in CITY where the District is California.
+
+Input Format
+
+The CITY table is described as follows:
+
+|  Field | Type |
+|---|---|
+| ID  | NUMBER |
+| NAME | VARCHAR2(17)   |
+| COUNTRYCODE | VARCHAR2(3)  |
+| DISTRICT | VARCHAR2(20) |
+| POPULATION | NUMBER |
+
+
+**Solution**
+
+```sql
+
+SELECT AVG(POPULATION)AS california_average_population
+FROM CITY
+WHERE DISTRICT="California";
+
+```
+
+
+
+
+
 **[African Cities](https://www.hackerrank.com/challenges/african-cities)**
 
 

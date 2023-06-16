@@ -474,7 +474,7 @@ The table and earnings data is depicted in the following diagram:
 |98607  | Todd | 5| 3396|16980|
 |99989  | Joe | 9| 3573|32157|
 
-The maximum earnings value is 69952 . The only employee with earnings =69952 is Kimberly, so we print the maximum earnings value (69952) and a count of the number of employees who have earned  $69952(which is 1 ) as two space-separated values.
+The maximum earnings value is 69952. The only employee with earnings =69952 is Kimberly, so we print the maximum earnings value (69952) and a count of the number of employees who have earned  $69952(which is 1 ) as two space-separated values.
 
 
 

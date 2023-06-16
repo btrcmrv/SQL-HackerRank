@@ -492,13 +492,6 @@ LIMIT 1;
 
 
 
-
-
-
-
-
-
-
 **[African Cities](https://www.hackerrank.com/challenges/african-cities)**
 
 
@@ -599,3 +592,134 @@ JOIN COUNTRY co
     ON ci.COUNTRYCODE= co.CODE
 GROUP BY  co.CONTINENT;
 ```
+
+
+
+
+**[Population Census](https://www.hackerrank.com/challenges/asian-population)**
+
+Given the CITY and COUNTRY tables, query the sum of the populations of all cities where the CONTINENT is 'Asia'.
+
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+
+Input Format
+
+The CITY and COUNTRY tables are described as follows:
+
+|  Field | Type |
+|---|---|
+| ID  | NUMBER |
+| NAME | VARCHAR2(17) |
+| COUNTRYCODE | VARCHAR2(3)  |
+| DISTRICT | VARCHAR2(20) |
+|POPULATION | NUMBER|
+
+
+|  Field | Type |
+|---|---|
+| CODE  | VARCHAR2(3) |
+| NAME | VARCHAR2(44) |
+| CONTINENT | VARCHAR2(13)  |
+| REGION | VARCHAR2(25) |
+|SURFACEAREA | NUMBER |
+|INDEPYEAR| VARCHAR2(5) | 
+|POPULATION | NUMBER |
+|LIFEEXPECTANCY| VARCHAR2(4)|
+|GNP| NUMBER |
+|GNPOLD| VARCHAR2(9) |
+|LOCALNAME | VARCHAR2(44) |
+|GOVERNMENTFORM | VARCHAR2(44) |
+|HEADOFSTATE | VARCHAR2(32)|
+|CAPITAL | VARCHAR2(4)|
+|CODE2 | VARCHAR2(2)|
+
+
+**Solution**
+
+```sql
+SELECT SUM(ci.POPULATION)
+FROM CITY ci
+JOIN COUNTRY co   
+    ON ci.CountryCode= co.Code
+WHERE co.CONTINENT='Asia'
+```
+
+
+
+
+**[Top Competitors](https://www.hackerrank.com/challenges/full-score)**
+
+Julia just finished conducting a coding contest, and she needs your help assembling the leaderboard! Write a query to print the respective hacker_id and name of hackers who achieved full scores for more than one challenge. Order your output in descending order by the total number of challenges in which the hacker earned a full score. If more than one hacker received full scores in same number of challenges, then sort them by ascending hacker_id.
+
+Input Format
+
+The following tables contain contest data:
+
+Hackers: The hacker_id is the id of the hacker, and name is the name of the hacker.
+
+|  Column | Type |
+|---|---|
+| hacker_id  | Integer |
+| name | String |
+
+
+Difficulty: The difficult_level is the level of difficulty of the challenge, and score is the score of the challenge for the difficulty level. 
+
+|  Column | Type |
+|---|---|
+| difficulty_level  | Integer |
+| score | Integer |
+
+Challenges: The challenge_id is the id of the challenge, the hacker_id is the id of the hacker who created the challenge, and difficulty_level is the level of difficulty of the challenge. 
+
+|  Column | Type |
+|---|---|
+| submission_id  | Integer |
+| hacker_id  | Integer |
+| difficulty_level  | Integer |
+
+
+Submissions: The submission_id is the id of the submission, hacker_id is the id of the hacker who made the submission, challenge_id is the id of the challenge that the submission belongs to, and score is the score of the submission. 
+
+|  Column | Type |
+|---|---|
+| submission_id  | Integer |
+| hacker_id  | Integer |
+| challange_id  | Integer |
+| score | Integer |
+
+Explanation
+
+Hacker 86870 got a score of 30 for challenge 71055 with a difficulty level of 2, so 86870 earned a full score for this challenge.
+
+Hacker 90411 got a score of 30 for challenge 71055 with a difficulty level of 2, so 90411 earned a full score for this challenge.
+
+Hacker 90411 got a score of 100 for challenge 66730 with a difficulty level of 6, so 90411 earned a full score for this challenge.
+
+Only hacker 90411 managed to earn a full score for more than one challenge, so we print the their hacker_id and name as  2 space-separated values.
+
+
+
+
+**Solution**
+
+```sql
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

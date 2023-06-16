@@ -267,6 +267,32 @@ WHERE DISTRICT="California";
 ```
 
 
+**[Aggregations - Average Population](https://www.hackerrank.com/challenges/average-population)**
+
+Query the AVERAGE population for all cities in CITY, ROUNDED DOWN to the nearest integer.
+
+
+Input Format
+
+The CITY table is described as follows:
+
+|  Field | Type |
+|---|---|
+| ID  | NUMBER |
+| NAME | VARCHAR2(17)   |
+| COUNTRYCODE | VARCHAR2(3)  |
+| DISTRICT | VARCHAR2(20) |
+| POPULATION | NUMBER |
+
+
+**Solution**
+
+```sql
+
+SELECT FLOOR(AVG(POPULATION))AS california_average_population_round_down
+FROM CITY;
+
+```
 
 
 

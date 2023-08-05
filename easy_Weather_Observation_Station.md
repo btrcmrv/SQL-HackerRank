@@ -621,6 +621,13 @@ where LAT_N is the northern latitude and LONG_W is the western longitude.
 
 ```sql
 
+SELECT ROUND(AVG(LAT_N),4) FROM
+(Select *, ROW_NUMBER() OVER( ORDER BY LAT_N ASC) AS LAT_N_AS,
+            ROW_NUMBER() OVER( ORDER BY LAT_N DESC) AS LAT_N_DESC
+FROM STATION ) as S
+
+WHERE LAT_N_AS in(LAT_N_DESC, LAT_N_DESC+1, LAT_N_DESC-1)
+
 ```
 
 

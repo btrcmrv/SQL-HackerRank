@@ -713,7 +713,7 @@ Only hacker 90411 managed to earn a full score for more than one challenge, so w
 ADVANCE SELECT
 ```
 
-**[Type of Triangles](https://www.hackerrank.com/challenges/what-type-of-triangle/)**
+**[Type of Triangles](https://www.hackerrank.com/challenges/what-type-of-triangle)**
 
 Write a query identifying the type of each record in the TRIANGLES table using its three side lengths. Output one of the following statements for each record in the table:
 
@@ -774,11 +774,29 @@ FROM
 
 
 
+```
+ALTERNATIVE QUERIES
+```
+**[Draw a Triangle 1 ](https://www.hackerrank.com/challenges/draw-the-triangle-1)**
 
 
+P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
+* * * * * 
+* * * * 
+* * * 
+* * 
+*
+Write a query to print the pattern P(20).
 
 
+**Solution**
 
+```sql
+
+SET @number = 21;
+SELECT REPEAT('* ', @number := @number -1) 
+FROM INFORMATION_SCHEMA.TABLES          --allows you to get information about all tables and views within a database. 
+```
 
 
 

@@ -805,5 +805,24 @@ FROM INFORMATION_SCHEMA.TABLES          --allows you to get information about al
 
 
 
+**[Draw a Triangle 2 ](https://www.hackerrank.com/challenges/draw-the-triangle-2)**
 
+P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
+
+```
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+```
+
+Write a query to print the pattern P(20).
+
+```sql
+SET @number= 0;
+SELECT REPEAT("* ", @number := @number+1 )
+FROM INFORMATION_SCHEMA.TABLES
+WHERE @number < 20
+```
 

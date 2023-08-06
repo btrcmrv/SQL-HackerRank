@@ -742,12 +742,12 @@ Sample Input
 
 
 Sample Output
-
+```
 Isosceles
 Equilateral
 Scalene
 Not A Triangle
-
+```
 
 Explanation
 

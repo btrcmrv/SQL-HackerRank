@@ -709,8 +709,10 @@ Only hacker 90411 managed to earn a full score for more than one challenge, so w
 ```
 
 
+```
+ADVANCE SELECT
+```
 
-**ADVANCE SELECT
 **[Type of Triangles](https://www.hackerrank.com/challenges/what-type-of-triangle/)**
 
 Write a query identifying the type of each record in the TRIANGLES table using its three side lengths. Output one of the following statements for each record in the table:
